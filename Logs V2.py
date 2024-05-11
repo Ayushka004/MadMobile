@@ -3,6 +3,7 @@ import json
 import psutil
 import datetime
 import time
+import os
 import pytz  # Import pytz for timezone information
 
 def get_system_stats():
@@ -31,18 +32,39 @@ def upload_to_s3(bucket_name, file_name, data):
     except Exception as e:
         print(f"Error uploading to S3: {e}")
 
+def save_local_log(file_name, data):
+    log_folder = 'logs'
+    if not os.path.exists(log_folder):
+        os.makedirs(log_folder)
+
+    with open(f'{log_folder}/{file_name}', 'a') as file:
+        file.write(json.dumps(data) + '\n')
+
+
 def main():
     bucket_name = 'demomad1'
+    logs = []
     while True:
         current_time = datetime.datetime.now()
         timezone = pytz.timezone('Asia/Kolkata')  # To gte IST time
         current_time_tz = timezone.localize(current_time)
-        formatted_date = current_time_tz.strftime("%Y-%m-%d_%H-%M-%S_%Z")
+        formatted_date = current_time_tz.strftime("%Y-%m-%d_%H-%M_%Z")
         file_name = f'stats_{formatted_date}.json'
 
         stats_data = get_system_stats()
+        save_local_log(f'stats_{formatted_date}.log', stats_data)  # Save each log locally
+        logs.append(stats_data)
         upload_to_s3(bucket_name, file_name, stats_data)
         time.sleep(60)  # Wait for 60 seconds (1 minute) before collecting stats again
+
+        # Delete local logs after 24 hours
+        yesterday = datetime.datetime.now() - datetime.timedelta(days=1)
+        for log_file in os.listdir('logs'):
+            file_path = os.path.join('logs', log_file)
+            creation_time = datetime.datetime.fromtimestamp(os.path.getctime(file_path))
+            if creation_time < yesterday:
+                os.remove(file_path)
+                print(f"Deleted {log_file} from local storage")
 
 if __name__ == "__main__":
     main()
