@@ -26,7 +26,7 @@ def get_system_stats():
         
     }
 
-s3_client = boto3.client('s3', aws_access_key_id='AKIAW3MEFK7XHNR5GBOL', aws_secret_access_key='pSL31xud3zrBnt50S+4ZSm9uYWn0BAWU16HH6mdv')
+s3_client = boto3.client('s3', aws_access_key_id='YOUR_ACCESS_KEY', aws_secret_access_key='YOUR_SECRET_KEY')
 
 
 def upload_to_s3(bucket_name, file_name, data):
