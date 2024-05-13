@@ -17,15 +17,15 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 
 ## 1. monitor the Utilization of 5 Critical Environment/Host Stats in a EC2/Physical Unix Setup.
 ### Requirments
-    Identify the 5 critical environment/host stats to monitor.
-    Develop a monitoring solution using free softwares that can gather and display these stats.
+Identify the 5 critical environment/host stats to monitor.
+Develop a monitoring solution using free softwares that can gather and display these stats.
 ### Step to take
-    1. Create a EC2 instace in the aws dashboard 
-    2. install aws cloud watch client application on the ec2 instace by using the following 
-    ```
-    sudo yum install amazon-cloudwatch-agent
-    ```
-    <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html"> Documentation</a>
+1. Create a EC2 instace in the aws dashboard 
+2. install aws cloud watch client application on the ec2 instace by using the following 
+```
+sudo yum install amazon-cloudwatch-agent
+```
+<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html"> Documentation</a>
 -----------------------------------------
 
 ## Set Thresholds to Each of these 5 Critical stats at 60% - Amber and 80% Red
@@ -45,10 +45,37 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 
 
 ### Step to take
-install the stress tool on your EC2 instance
+1. install the stress tool on your EC2 instance
 ```
 sudo yum install stress
 ```
+```pip3 install psutil```
+
+2. download the following Python script.
+   
+   <a href="/Python Scripts/Logs V2.py"> StessTest.py <a>
+
+3. On the EC2 terminal create a new file in the root
+    ``` 
+    Touch StressTest.py  
+    ```
+    
+4. Edit the file and add the content from the logsV2py file using the following command 
+    ```
+    Vim StressTest.py
+    ```
+    
+5. Save and exit (press button esc and)
+    ```
+    :wq
+    ```
+6. Run the following command to make the app run indefinitely on the background
+    ```
+    python3 StressTest.py
+    ```
+
+8. Kill the program after a few mins 
+
 
 
 ## 3. upon each violation of the threshold an email to be sent out
