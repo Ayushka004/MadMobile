@@ -6,7 +6,9 @@ This repository contains scripts and configurations to set up system monitoring,
 
 ## Overview
 
-The system setup involves monitoring critical stats of an EC2 instance, collecting data using a Python script, uploading JSON files to an S3 bucket, and storing data in DynamoDB. Additionally, it includes setting thresholds, sending notifications, generating weekly summaries, and handling errors.
+The system setup involves monitoring critical stats of an EC2 instance, collecting data using a Python script, uploading JSON files to an S3 bucket, and storing data in DynamoDB. Additionally, it includes setting thresholds, sending notifications.
+
+![Data Flow](images/Stats.png)
 
 ![System Overview](images/system_overview.png)
 
