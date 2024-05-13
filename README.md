@@ -16,14 +16,15 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 --------------------------------------
 
 
------------------------------------------
-
 ## 1. monitor the Utilization of 5 Critical Environment/Host Stats in a EC2/Physical Unix Setup.
 ### Requirments
 1. Launch a EC2 instance with Python and aws-cloud-watch installed.
 2. Ensure the instance has necessary permissions for S3 and DynamoDB access.
 
 ### Step to take
+
+
+-----------------------------------------
 
 ## Set Thresholds to Each of these 5 Critical stats at 60% - Amber and 80% Red
 ### Requirments
@@ -36,6 +37,7 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 
 ### Step to take
 
+-----------------------------------------
 
 ## 3. Record the 5 Key stats every minute and record the data in a JSON Type Document which can be fed into a database
 ### Requirments
@@ -83,6 +85,8 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
     nohup python monitor.py &
     ```
 
+-----------------------------------------
+
 ## Send a Weekly Summary email to an email address with Weekly High, low and Average values in a tabular format.
 ### Requirments
 1. Write a Python script to collect system stats and upload JSON files to S3 
@@ -90,6 +94,8 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 3. Use Boto3 to interact with AWS services in the script.
 4. Collect logs in json and send it to the s3 bucket
 
+***Will be completed in a future iteration
+-----------------------------------------
 
 ## Implement Error Logging to the Solution where any errors will be managed and notified to various stakeholders
 ### Requirments
@@ -98,3 +104,5 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 3. Use Boto3 to interact with AWS services in the script.
 4. Collect logs in json and send it to the s3 bucket
 
+***Will be completed in a future iteration
+-----------------------------------------
