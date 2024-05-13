@@ -33,6 +33,19 @@ sudo yum install amazon-cloudwatch-agent
 1. Define threshold levels for each critical stat (CPU, memory, disk, network, and response time).
 2. Establish different threshold colors (amber and red) for warning and critical levels.
 
+### steps to take 
+1. In the CloudWatch dashboard, select "Metrics" from the sidebar menu.
+2. Choose the metric namespace related to your EC2 instances or Unix hosts (e.g., EC2, System/Linux, etc.).
+3. Select the specific metric(s) you want to monitor, such as CPUUtilization, MemoryUtilization, DiskReadBytes DiskWriteBytes, NetworkIn, NetworkOut, etc.
+4. Click on the metric to view its graph and details.
+5. From the left sidebar in CloudWatch, click on "Alarms" under the "Alarms & Events" section.
+6. Click on the "Create Alarm" button
+7. Define the statistic and period for evaluating the metric.
+8. Set conditions for your alarm:
+9. Configure actions for your alarm:
+10. Provide a name and description for your alarm.
+11. Repeat the same for the other monitoring metrics
+
 
 -----------------------------------------
 
