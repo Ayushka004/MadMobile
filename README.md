@@ -36,9 +36,9 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 ```
 
 7. download the following Python script.
-   ```
-    logsV2.py
-   ```
+   
+   <a href="/Python Scripts/Logs V2.py"> logsV2.py <a>
+   
 
 9. On the EC2 terminal create a new file in the root
     ```
