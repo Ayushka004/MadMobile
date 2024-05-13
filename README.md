@@ -1,4 +1,3 @@
-# L2 Technical support agent
 
 # System Monitoring and Data Flow Using AWS
 
@@ -20,9 +19,13 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 ### Requirments
     Identify the 5 critical environment/host stats to monitor.
     Develop a monitoring solution using free softwares that can gather and display these stats.
-
 ### Step to take
-    1.
+    1. Create a EC2 instace in the aws dashboard 
+    2. install aws cloud watch client application on the ec2 instace by using the following 
+    ```
+    sudo yum install amazon-cloudwatch-agent
+    ```
+    <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html"> Documentation</a>
 -----------------------------------------
 
 ## Set Thresholds to Each of these 5 Critical stats at 60% - Amber and 80% Red
@@ -33,19 +36,40 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 
 -----------------------------------------
 
-## 2. Setup a mechanism for each of the Critical Stat thresholds to be tested and upon each violation of the threshold an email to be sent out
+## 2. Setup a mechanism for each of the Critical Stat thresholds to be tested and 
 ### Requirments
-1. Launch a EC2 instance with Python and aws-cloud-watch installed.
-2. Ensure the instance has necessary permissions for S3 and DynamoDB access.
+1. Implement an automated system to test
+2. Configure the monitoring tool to set thresholds for each metric.
+3. Set the threshold levels at 60% for amber and 80% for red.
+4. Ensure that alerts or notifications are triggered when thresholds are exceeded.
+
 
 ### Step to take
-1. Configure the monitoring tool to set thresholds for each metric.
-2. Set the threshold levels at 60% for amber and 80% for red.
-3. Ensure that alerts or notifications are triggered when thresholds are exceeded.
+install the stress tool on your EC2 instance
+```
+sudo yum install stress
+```
+
+
+## 3. upon each violation of the threshold an email to be sent out
+### Requirments
+1. Recive emails for a selected group based on the seviraty level
+
+### Step to take
+Navigate to the cloudwatch
+Select Alarms and then Create Alarm
+Scroll through the Amazon SNS metrics to find the metric you want to alarm on
+Define a threshold *80% and 60%) value to trigger the alarm
+Under Notification, select an existing or new Amazon SNS topic
+Enter a name for the alarm
+Review the configuration and select Create Alarm 
+
+Sample email :
+<a href="/images/Alert.png">
 
 -----------------------------------------
 
-## 3. Record the 5 Key stats every minute and record the data in a JSON Type Document which can be fed into a database
+## 4. Record the 5 Key stats every minute and record the data in a JSON Type Document which can be fed into a database
 ### Requirments
 1. Write a script to collect system stats and upload JSON files to S3 
 2. at the same time add them to a log folder and every 7 days remove them.
@@ -102,14 +126,14 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
     <a href="/Python Scripts/S3-To_dynamoDB-Json.PY">  <a>
 -----------------------------------------
 
-## Send a Weekly Summary email to an email address with Weekly High, low and Average values in a tabular format.
+## 5. Send a Weekly Summary email to an email address with Weekly High, low and Average values in a tabular format.
 ### Requirments
 
 ***Will be completed in a future iteration
 
 -----------------------------------------
 
-## Implement Error Logging to the Solution where any errors will be managed and notified to various stakeholders
+## 6. Implement Error Logging to the Solution where any errors will be managed and notified to various stakeholders
 ### Requirments
 
 ***Will be completed in a future iteration
