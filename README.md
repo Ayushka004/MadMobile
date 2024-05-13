@@ -65,9 +65,7 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
    
 
 4. On the EC2 terminal create a new file in the root
-    ```
-    Touch monitor.py
-    ```
+    ``` Touch monitor.py ```
     
 5. Edit the file and add the content from the logsV2py file using the following command 
     ```
