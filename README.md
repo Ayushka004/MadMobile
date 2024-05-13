@@ -105,8 +105,11 @@ Enter a name for the alarm
 Review the configuration and select Create Alarm 
 
 Sample email :
-<a href="/images/aleremail.jpeg">
-<a href="/images/email.png">
+<br>
+![Email](images/aleremail.jpeg)
+<br>
+![Email](images/email.png)
+
 
 -----------------------------------------
 
