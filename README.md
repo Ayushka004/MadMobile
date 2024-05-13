@@ -12,11 +12,21 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 
 ![System Overview](images/system_overview.png)
 
-## Setup Instructions
 
-### Step 1: EC2 Instance Setup
-1. Launch an EC2 instance with Python installed.
+## monitor the Utilization of 5 Critical Environment/Host Stats in a 3 EC2/Physical Unix Setup.
+## Set Thresholds to Each of these 5 Critical stats at 60% - Amber and 80% Red
+## Setup a mechanism for each of the Critical Stat thresholds to be tested and upon each violation of the threshold an email to be sent out
+## Record the 5 Key stats every minute and record the data in a JSON Type Document which can be fed into a database
+## Send a Weekly Summary email to an email address with Weekly High, low and Average values in a tabular format.
+## Implement Error Logging to the Solution where any errors will be managed and notified to various stakeholders
+##
+##
+
+Requirments
+1. Launch 3 EC2 instance with Python and aws-cloud-watch installed.
 2. Ensure the instance has necessary permissions for S3 and DynamoDB access.
+
+
 
 ### Step 2: Python Script and S3 Upload
 1. Write a Python script to collect system stats and upload JSON files to S3.
