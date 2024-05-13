@@ -22,31 +22,48 @@ The system setup involves monitoring critical stats of an EC2 instance, collecti
 3. Collect logs in json and send it to the s3 bucket
 
 4. Using SSH connect to the terminal 
-5. Install the following dependencies 
+5. Install the following dependencies
+```
     pip3 install psutil
+```
+```
     pip3 install boto3
+```
+```
     pip3 install pytz
+```
 
-6. download the following Python script. 
+7. download the following Python script.
+   ```
     logsV2.py
+   ```
 
-7. On the EC2 terminal create a new file in the root 
+9. On the EC2 terminal create a new file in the root
+    ```
     Touch monitor.py
-
-8. Edit the file and add the content from the logsV2py file using the following command 
+    ```
+    
+11. Edit the file and add the content from the logsV2py file using the following command 
+    ```
     Vim monitor.py
+    ```
+    
+12. Save and exit (press button esc and)
+    ```
+    :wq
+    ```
+    
 
-9. Save and exit
-
-10. Run the following command to make the app run indefinitely on the background
+14. Run the following command to make the app run indefinitely on the background
+    ```
     nohup python monitor.py &
-
+    ```
 
 ### Step 3: S3 Event Trigger and Lambda Function
 1. Set up an S3 event trigger to invoke a Lambda function on file upload.
 2. Create a Lambda function to read JSON files from S3 and store data in DynamoDB.
 
-![Data Flow](images/data_flow.png)
+![Data Flow](images/image.png)
 
 ### Step 4: Thresholds, Alarms, and Notifications
 1. Configure CloudWatch alarms for critical stats with thresholds.
