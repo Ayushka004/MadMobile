@@ -172,8 +172,53 @@ Sample email :
 
 ## 5. Send a Weekly Summary email to an email address with Weekly High, low and Average values in a tabular format.
 ### Requirments
+1. generate a report with a weekly information
+2. Generate the information in a table format
+3. send the email to a group of people 
 
-***Will be completed in a future iteration
+### Steps to take
+1. install python libarary
+```
+pip3 install psutil schedule 
+```
+
+2. download the following Python script.
+   
+   <a href="/Python Scripts/Hourly emails.py"> Hourly emails.py <a>
+   <a href="/Python Scripts/Weekly report.py"> Weekly emails.py <a>
+   
+
+3. On the EC2 terminal create a new file in the root
+    ``` 
+    Touch Hourly.py  
+    ```
+    ``` 
+    Touch Weekly.py  
+    ```
+    
+4. Edit the file and add the content from the python file using the following command 
+    ```
+    Vim file_name.py
+    ```
+    
+5. Save and exit (press button esc and)
+    ```
+    :wq
+    ```
+6. using cron tab function to repeat the emails on a selected date/time
+    ```
+    crontab -e
+    ```
+7. edit the file and add the following file save and exit
+    ```
+    * * * * * /usr/bin/python /home/ec2-user/Hourly.py
+    * * * * * /usr/bin/python /home/ec2-user/Weekly.py
+
+    ```
+8. verify the cron job queue using following 
+    ```
+    crontab -l
+    ```
 
 -----------------------------------------
 
