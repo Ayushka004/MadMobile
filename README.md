@@ -219,7 +219,13 @@ pip3 install psutil schedule
     ```
     crontab -l
     ```
+Sample email :
+<br>
+![Email](images/daily_email.png)
 
+Sample weekly email:
+<br>
+![Email image](images/weekly_email.png)
 -----------------------------------------
 
 ## 6. Implement Error Logging to the Solution where any errors will be managed and notified to various stakeholders
