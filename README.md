@@ -225,7 +225,7 @@ Sample email :
 
 Sample weekly email:
 <br>
-![Email image](images/weekly_email.png)
+![Email image](images/weekly_email.jpeg)
 -----------------------------------------
 
 ## 6. Implement Error Logging to the Solution where any errors will be managed and notified to various stakeholders
