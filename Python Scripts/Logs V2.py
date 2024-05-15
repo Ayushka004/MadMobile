@@ -26,6 +26,7 @@ def get_system_stats():
 
 def upload_to_s3(bucket_name, file_name, data):
     try:
+        #get aws creads
         s3_client = boto3.client('s3', aws_access_key_id='<<Your aws ID here>>', aws_secret_access_key='<<Your Secret key here>>')
         s3_client.put_object(Bucket=bucket_name, Key=file_name, Body=json.dumps(data))
         print(f"Uploaded {file_name} to S3 bucket {bucket_name}")
