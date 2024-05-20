@@ -169,6 +169,10 @@ pip3 install -r requirements.txt
 
 ### Steps to take
 1. since we downloaded the files required on the previous step we are goin to add this to a crontab tp schedule the scripts
+
+    ```
+    sudo yum install cronie -y
+    ```
     ```
     crontab -e
     ```
@@ -180,8 +184,8 @@ pip3 install -r requirements.txt
     │ │ │ ┌───────────── Month (1-12 or Jan-Dec)
     │ │ │ │ ┌───────────── Day of the Week (0-7, both 0 and 7 represent Sunday)
     │ │ │ │ │     
-    * * * * * /usr/bin/python /home/ec2-user/WeeklyEmail.py
-    * * * * * /usr/bin/python /home/ec2-user/Hourly\ emails.py
+    * * * * 0 /usr/bin/python /home/ec2-user/WeeklyEmail.py
+    0 * * * * /usr/bin/python /home/ec2-user/Hourly\ emails.py
     ```
 3. verify the cron job queue using following 
     ```
