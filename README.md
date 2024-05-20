@@ -110,6 +110,7 @@ Sample email :
 <br>
 ![Email](images/email.png)
 
+* Note : for now only the cpu utilization can be checked and the other metrices cannot be stressed
 
 -----------------------------------------
 
