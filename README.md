@@ -154,8 +154,10 @@ pip3 install -r requirements.txt
 
 5. Run the following command to make the app run indefinitely on the background
     ```
-    nohup python monitor.py &
+    nohup python Logs\ V2.py &
     ```
+
+    This will send log files for 5 mins and it will run indefenetly until the instace reboots
 
 -----------------------------------------
 
@@ -166,45 +168,22 @@ pip3 install -r requirements.txt
 3. send the email to a group of people 
 
 ### Steps to take
-1. install python libarary
-```
-pip3 install psutil schedule 
-```
-
-2. download the following Python script.
-   
-   <a href="/Scripts/Hourly emails.py"> Hourly emails.py <a>
-   <a href="/Scripts/Weekly report.py"> Weekly emails.py <a>
-   
-
-3. On the EC2 terminal create a new file in the root
-    ``` 
-    Touch Hourly.py  
-    ```
-    ``` 
-    Touch Weekly.py  
-    ```
-    
-4. Edit the file and add the content from the python file using the following command 
-    ```
-    Vim file_name.py
-    ```
-    
-5. Save and exit (press button esc and)
-    ```
-    :wq
-    ```
-6. using cron tab function to repeat the emails on a selected date/time
+1. since we downloaded the files required on the previous step we are goin to add this to a crontab tp schedule the scripts
     ```
     crontab -e
     ```
-7. edit the file and add the following file save and exit
+2. edit the file and add the following file save and exit
     ```
-    * * * * * /usr/bin/python /home/ec2-user/Hourly.py
-    * * * * * /usr/bin/python /home/ec2-user/Weekly.py
-
+    ┌─-──────────── Minute (0-59)
+    │ ┌───────────── Hour (0-23)
+    │ │ ┌───────────── Day of the Month (1-31)
+    │ │ │ ┌───────────── Month (1-12 or Jan-Dec)
+    │ │ │ │ ┌───────────── Day of the Week (0-7, both 0 and 7 represent Sunday)
+    │ │ │ │ │     
+    * * * * * /usr/bin/python /home/ec2-user/WeeklyEmail.py
+    * * * * * /usr/bin/python /home/ec2-user/Hourly\ emails.py
     ```
-8. verify the cron job queue using following 
+3. verify the cron job queue using following 
     ```
     crontab -l
     ```
@@ -220,6 +199,6 @@ Sample weekly email:
 ## 6. Implement Error Logging to the Solution where any errors will be managed and notified to various stakeholders
 ### Requirments
 
-***Will be completed in a future iteration
+***Will be completed in a future
 
 -----------------------------------------
