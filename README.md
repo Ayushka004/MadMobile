@@ -66,7 +66,7 @@ sudo yum install stress
 
 2. download the following Python script.
    
-   <a href="/Python Scripts/Logs V2.py"> StessTest.py <a>
+   <a href="/Scripts/Logs V2.py"> StessTest.py <a>
 
 3. On the EC2 terminal create a new file in the root
     ``` 
@@ -134,7 +134,7 @@ Sample email :
 
 3. download the following Python script.
    
-   <a href="/Python Scripts/Logs V2.py"> logsV2.py <a>
+   <a href="/Scripts/Logs V2.py"> logsV2.py <a>
    
 
 4. On the EC2 terminal create a new file in the root
@@ -167,7 +167,7 @@ Sample email :
     Use Boto3 in the Lambda function to read the JSON file from S3 and write the data to DynamoDB (SystemData in your case) using the put_item API.
     Here's the python code for the Lambda function
 
-    <a href="/Python Scripts/S3-To_dynamoDB-Json.PY">  <a>
+    <a href="/Scripts/S3-To_dynamoDB-Json.PY">  <a>
 -----------------------------------------
 
 ## 5. Send a Weekly Summary email to an email address with Weekly High, low and Average values in a tabular format.
@@ -184,8 +184,8 @@ pip3 install psutil schedule
 
 2. download the following Python script.
    
-   <a href="/Python Scripts/Hourly emails.py"> Hourly emails.py <a>
-   <a href="/Python Scripts/Weekly report.py"> Weekly emails.py <a>
+   <a href="/Scripts/Hourly emails.py"> Hourly emails.py <a>
+   <a href="/Scripts/Weekly report.py"> Weekly emails.py <a>
    
 
 3. On the EC2 terminal create a new file in the root
